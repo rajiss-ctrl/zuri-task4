@@ -1,28 +1,37 @@
  // FIRST TASK
- const convertFahrToCelcius=(value)=>{
-	 if(typeof value === "string" || typeof value === "number"){
-		 let inputVal = parseInt(value);
+ const convertFahrToCelcius=(valCelcius)=>{
+	 if(typeof valCelcius === "string" || typeof valCelcius === "number"){
+		 let inputVal = parseInt(valCelcius);
 
 		 let cal = (inputVal - 32)*5/9;
-		 let fahrToCelcius = cal.toFixed(4)
+		 if(cal < 0){
+           let fahrToCelcius = cal.toFixed(4)
 		 return `${fahrToCelcius}`;
-
+		 
+		 }else{
+		 let fahrToCelcius = Math.floor(cal)
+		 return `${fahrToCelcius}`; 
+		 }
+		
 	 } ;  
 
-if(Array.isArray(value)){
-	return `[${value}] is not a valid parameter but a/an array.`
+if(Array.isArray(valCelcius)){
+return `[${valCelcius}] is not a valid number but a/an array.`
 }
-if(typeof value === "object" || typeof value === "boolean"){
-let result = JSON.stringify(value)
-return `${ result}: is not a valid parameter but a/an ${typeof(value)}`;
+if(typeof valCelcius === "object" || typeof valCelcius === "boolean"){
+let result = JSON.stringify(valCelcius)
+return `${ result}: is not a valid number but a/an ${typeof(valCelcius)}`;
 }
-	}
+}
+	
 
 console.log(convertFahrToCelcius("0")) 
 console.log(convertFahrToCelcius(0))
+console.log(convertFahrToCelcius(32))
  console.log(convertFahrToCelcius([1,23]))
  console.log(convertFahrToCelcius({temp:0}))
  console.log(convertFahrToCelcius(true))
+ 
 
  // SECOND TASK
 const checkYuGiHo =(n)=>{
